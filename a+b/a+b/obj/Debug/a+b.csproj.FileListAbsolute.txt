@@ -1,0 +1,6 @@
+C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\a+b\a+b\bin\Debug\a+b.exe.config
+C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\a+b\a+b\obj\Debug\a+b.csprojResolveAssemblyReference.cache
+C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\a+b\a+b\bin\Debug\a+b.exe
+C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\a+b\a+b\bin\Debug\a+b.pdb
+C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\a+b\a+b\obj\Debug\a+b.exe
+C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\a+b\a+b\obj\Debug\a+b.pdb
