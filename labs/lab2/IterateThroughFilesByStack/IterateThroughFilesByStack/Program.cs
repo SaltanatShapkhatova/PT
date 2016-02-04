@@ -1,24 +1,87 @@
 ﻿using System;
-using System.IO;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace IterateThroughFilesByStack
+public class IterateByStack
 {
-    public static void WalkTreeDirectory(DirectoryInfo d)
+    static void Main(string[] args)
     {
+        WalkTree(@"C:\Users\ы\Documents\programming languages");
 
+        Console.WriteLine("Press any key");
+        Console.ReadKey();
     }
-    class Program
+
+    public static void WalkTree(string root)
     {
-        static void Main(string[] args)
+        
+        Stack<string> direcs = new Stack<string>(100);
+
+        if (!System.IO.Directory.Exists(root))
         {
-            DirectoryInfo d = new DirectoryInfo(@"C:\Users\ы\Documents\programming languages");
-            Console.WriteLine(d.Name+" "+d.FullName);
-            WalkTreeDirectory(d);
+            throw new ArgumentException();
+        }
+        direcs.Push(root);
+
+        while (direcs.Count > 0)
+        {
+            string curr_dir = direcs.Pop();
+            string[] Dirs;
+            try
+            {
+                Dirs = System.IO.Directory.GetDirectories(curr_dir);
+            }
+    
+            catch (UnauthorizedAccessException e)
+            {
+                Console.WriteLine(e.Message);
+                continue;
+            }
+            catch (System.IO.DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+                continue;
+            }
+
+            string[] files = null;
+            try
+            {
+                files = System.IO.Directory.GetFiles(curr_dir);
+            }
+
+            catch (UnauthorizedAccessException e)
+            {
+
+                Console.WriteLine(e.Message);
+                continue;
+            }
+
+            catch (System.IO.DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+                continue;
+            }
             
+            foreach (string file in files)
+            {
+                try
+                {
+                    
+                    System.IO.FileInfo fi = new System.IO.FileInfo(file);
+                    Console.WriteLine("{0}: {1}, {2}", fi.Name, fi.Length, fi.CreationTime);
+                }
+                catch (System.IO.FileNotFoundException e)
+                {
+                    
+                    Console.WriteLine(e.Message);
+                    continue;
+                }
+            }
+
+            
+            foreach (string str in Dirs)
+                direcs.Push(str);
         }
     }
 }
