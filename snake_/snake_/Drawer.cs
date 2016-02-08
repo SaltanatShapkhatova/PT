@@ -70,9 +70,6 @@ namespace Example3.Models
             }
             FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             XmlSerializer xs = new XmlSerializer(GetType());
-
-
-
             switch (sign)
             {
                 case '#':

@@ -40,7 +40,7 @@ namespace Example3.Models
             if (Game.snake.body[0].x == Game.food.body[0].x && Game.snake.body[0].y == Game.food.body[0].y)
             {
                 //добавил к змейке новую точку. прирост
-                Game.snake.body.Add(new Point { x = Game.food.body[0].x, y = Game.food.body[0].y });
+                Game.snake.body.Add(new Point { x = 0, y = 0});
                 // переместил еду на новую позицию 
 
                 //new koordinates of food
@@ -81,10 +81,6 @@ namespace Example3.Models
                     Console.Clear();//dlya perexoda na new level
                     Game.wall.body.Clear();
                     Game.food.body.Clear();
-
-
-
-
                     Game.LoadLevel((Game.foodEaten / 4) + 1);
                     Game.Init();
                 }
@@ -96,7 +92,18 @@ namespace Example3.Models
                 if (Game.snake.body[0].x == Game.wall.body[i].x && Game.snake.body[0].y == Game.wall.body[i].y)
                 {
                     Console.Clear();
-                    Console.SetCursorPosition(35, 15);
+                    Console.SetCursorPosition(24, 24);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Game Over!");
+                    Game.inGame = false;
+                }
+            }
+            for(int i=body.Count-1; i > 0; i--)
+            {
+                if(body[0].x==body[i].x && body[0].y == body[i].y)
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(24, 24);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Game Over!");
                     Game.inGame = false;

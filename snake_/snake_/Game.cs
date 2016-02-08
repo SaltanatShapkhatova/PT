@@ -26,7 +26,7 @@ namespace Example3.Models
 
         public static void LoadLevel(int i)
         {
-            FileStream fs = new FileStream(string.Format(@"C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\snake\levels\level{0}.txt", i), FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(string.Format(@"C:\Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\snake_\levels\level{0}.txt", i), FileMode.Open, FileAccess.Read);
 
             StreamReader reader = new StreamReader(fs);
 
