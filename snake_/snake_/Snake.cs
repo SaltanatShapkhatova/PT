@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,11 +72,9 @@ namespace Example3.Models
 
                 Game.food.body[0].x = tx;
                 Game.food.body[0].y = ty;
-
                 Game.foodEaten++;
                 if (Game.foodEaten % 4 == 0)
                 {
-
                     Console.Clear();//dlya perexoda na new level
                     Game.wall.body.Clear();
                     Game.food.body.Clear();
@@ -85,7 +82,6 @@ namespace Example3.Models
                     Game.Init();
                 }
             }
-
             //проверка, есть ли столкновение со стеной
             for (int i = 0; i < Game.wall.body.Count; ++i)
             {

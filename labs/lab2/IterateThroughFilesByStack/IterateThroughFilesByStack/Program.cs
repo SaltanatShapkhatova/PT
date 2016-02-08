@@ -13,7 +13,7 @@ public class IterateByStack
 
     public static void WalkTree(string root)
     {
-        Stack<string> direcs = new Stack<string>(100);
+        Stack<string> direcs = new Stack<string>();
         if (!System.IO.Directory.Exists(root))
         {
             throw new ArgumentException();

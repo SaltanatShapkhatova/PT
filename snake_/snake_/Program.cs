@@ -46,7 +46,6 @@ namespace Example3
                         break;
                 }
             }
-
             Console.ReadKey();
         }
     }
