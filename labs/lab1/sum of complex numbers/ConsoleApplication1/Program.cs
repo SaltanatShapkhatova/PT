@@ -9,6 +9,7 @@ namespace sum_of_rational_numbers
     class Complex
     {
         public int x, y;
+
         public Complex()
         {
             x = y = 0;
@@ -26,7 +27,9 @@ namespace sum_of_rational_numbers
             down /= g;
             return new Complex(up, down);
         }
+        
 
+       
         private static int gcd(int a, int b)
         {
             if (b == 0) return a;
@@ -48,7 +51,7 @@ namespace sum_of_rational_numbers
             a2 = int.Parse(Console.ReadLine());
             b2 = int.Parse(Console.ReadLine());
             Complex a = new Complex(a1, b1);
-            Complex b = new Complex(a2, b2); 
+            Complex b = new Complex(a2, b2);
             Console.WriteLine(a + b);
             Console.ReadKey();
         }

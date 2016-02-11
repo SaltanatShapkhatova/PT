@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Example3.Models
 {
+    [Serializable]
     public class Point
     {
         public int x;

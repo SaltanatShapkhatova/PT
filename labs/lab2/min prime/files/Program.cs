@@ -11,13 +11,13 @@ namespace files
     {
         static bool is_Prime(int n)
         {
-            for(int i=2; i< n; i++)
+            for (int i = 2; i < n; i++)
             {
                 if (n % i == 0)
                 {
                     return false;
                 }
-                if((i==n) || (i > Math.Sqrt(n)))
+                if ((i == n) || (i > Math.Sqrt(n)))
                 {
                     return true;
                 }
@@ -26,7 +26,6 @@ namespace files
         }
         static void Main(string[] args)
         {
-            string line;
             int maxx, minn;
             /*StreamReader file = new StreamReader(@"C: \Users\ы\Documents\programming languages\far2.0\far2.0\PT_labs\theory\lab2\Reader.txt");
             while((line=file.ReadLine())!=null) 
@@ -41,7 +40,7 @@ namespace files
                 minn = curr_n;
                 maxx = minn;
                 string t_line;
-                while ((t_line = lines.ReadLine()) != null)
+                while ((t_line=lines.ReadLine()) != null)
                 {
                     curr_n = int.Parse(t_line);
                     if (is_Prime(curr_n) && maxx < curr_n)
@@ -49,7 +48,7 @@ namespace files
                         maxx = curr_n;
                     }
 
-                    if(is_Prime(curr_n) && minn>curr_n)
+                    if (is_Prime(curr_n) && minn > curr_n)
                     {
                         minn = curr_n;
                     }

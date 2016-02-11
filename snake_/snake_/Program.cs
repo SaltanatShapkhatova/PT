@@ -14,7 +14,6 @@ namespace Example3
             Game.Init();
 
             Console.SetWindowSize(48, 48);
-
             while (Game.inGame)
             {
                 Game.Redraw();
@@ -27,13 +26,13 @@ namespace Example3
                         Game.snake.Move(0, -1);
                         break;
                     case ConsoleKey.DownArrow:
-                        Game.snake.Move(0, 1);
+                        Game.snake.Move(0, 1); 
                         break;
                     case ConsoleKey.LeftArrow:
-                        Game.snake.Move(-1, 0);
+                        Game.snake.Move(-1, 0); 
                         break;
                     case ConsoleKey.RightArrow:
-                        Game.snake.Move(1, 0);
+                        Game.snake.Move(1, 0); 
                         break;
                     case ConsoleKey.Escape:
                         Game.inGame = false;

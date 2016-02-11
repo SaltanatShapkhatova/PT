@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Example3.Models
 {
+    [Serializable]
     public class Wall : Drawer
     {
         public Wall()

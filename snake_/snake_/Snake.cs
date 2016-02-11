@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Example3.Models
 {
+    [Serializable]
     public class Snake : Drawer
     {
         Point head = new Point();//naznachaem x i y koord

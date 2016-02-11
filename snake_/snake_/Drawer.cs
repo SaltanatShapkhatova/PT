@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Example3.Models
 {
+    [Serializable]
     public class Drawer
     {
         public ConsoleColor color;
@@ -16,39 +18,34 @@ namespace Example3.Models
         public void Draw()
         {
             Console.ForegroundColor = color;
-
             foreach (Point p in body)
             {
                 Console.SetCursorPosition(p.x, p.y);
                 Console.Write(sign);
-               
             }
         }
-
-        public Drawer()
-        {
-
-        }
-
+        public Drawer() {}
         public void Save()
         {
             string fileName = "";
-
             switch (sign)
             {
                 case '#':
-                    fileName = "wall.xml";//save as xml
+                    //fileName = "wall.xml";//save as xml
+                    fileName = "wall.dat";
                     break;
                 case '$':
-                    fileName = "food.xml";
+                    fileName = "food.dat";
                     break;
                 case 'o':
-                    fileName = "snake.xml";
+                    fileName = "snake.dat";
                     break;
             }
             FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write);
-            XmlSerializer xs = new XmlSerializer(GetType());//saves
-            xs.Serialize(fs, this);
+            //XmlSerializer xs = new XmlSerializer(GetType());//saves
+            //xs.Serialize(fs, this);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, this);
             fs.Close();
         }
 
@@ -59,37 +56,35 @@ namespace Example3.Models
             switch (sign)
             {
                 case '#':
-                    fileName = "wall.xml";
+                    fileName = "wall.dat";
                     break;
                 case '$':
-                    fileName = "food.xml";
+                    fileName = "food.dat";
                     break;
                 case 'o':
-                    fileName = "snake.xml";
+                    fileName = "snake.dat";
                     break;
             }
             FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            XmlSerializer xs = new XmlSerializer(GetType());
+            //XmlSerializer xs = new XmlSerializer(GetType());
+            BinaryFormatter bf = new BinaryFormatter();
             switch (sign)
             {
                 case '#':
                     Game.wall.body.Clear();
-                    Game.wall = xs.Deserialize(fs) as Wall;
+                    Game.wall = bf.Deserialize(fs) as Wall;
                     break;
                 case '$':
                     Game.food.body.Clear();
-                    Game.food = xs.Deserialize(fs) as Food;
+                    Game.food = bf.Deserialize(fs) as Food;
                     break;
                 case 'o':
                     Game.snake.body.Clear();
 
-                    Game.snake = xs.Deserialize(fs) as Snake;
+                    Game.snake = bf.Deserialize(fs) as Snake;
                     break;
             }
-
             fs.Close();
-
-
         }
     }
 
