@@ -19,6 +19,7 @@ namespace primes
                     
                     Console.WriteLine("This number isn`t prime");
                     Console.ReadKey();
+                    return;
                 }
             }
             Console.WriteLine("This number is- prime");
